@@ -17,7 +17,7 @@ class StaffController extends Controller
     public function index(): View
     {
         return view('admin.staff.index', [
-            'staffMembers' => Staff::query()->orderBy('last_name')->orderBy('first_name')->paginate(15),
+            'staffMembers' => Staff::query()->orderBy('last_name')->orderBy('first_name')->paginate(15)->onEachSide(1),
         ]);
     }
 

@@ -17,7 +17,7 @@ class PageController extends Controller
     public function index(): View
     {
         return view('admin.pages.index', [
-            'pages' => Page::query()->orderBy('slug')->paginate(15),
+            'pages' => Page::query()->orderBy('slug')->paginate(15)->onEachSide(1),
         ]);
     }
 

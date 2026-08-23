@@ -17,7 +17,7 @@ class DishKindController extends Controller
     public function index(): View
     {
         return view('admin.dish-kinds.index', [
-            'dishKinds' => DishKind::query()->withCount('dishes')->orderBy('id')->paginate(15),
+            'dishKinds' => DishKind::query()->withCount('dishes')->orderBy('id')->paginate(15)->onEachSide(1),
         ]);
     }
 

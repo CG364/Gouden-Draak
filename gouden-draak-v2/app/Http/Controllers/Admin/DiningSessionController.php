@@ -34,7 +34,8 @@ class DiningSessionController extends Controller
                 ->with(['table', 'openedBy'])
                 ->withCount('orders')
                 ->orderByDesc('ended_at')
-                ->paginate(15),
+                ->paginate(15)
+                ->onEachSide(1),
         ]);
     }
 

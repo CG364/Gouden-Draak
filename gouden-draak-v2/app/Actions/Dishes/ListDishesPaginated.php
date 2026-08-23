@@ -20,12 +20,12 @@ class ListDishesPaginated
         $dishes = Dish::sortByMenuNumber(Dish::query()->with('dishKind')->get());
         $page = LengthAwarePaginator::resolveCurrentPage();
 
-        return new LengthAwarePaginator(
+        return (new LengthAwarePaginator(
             $dishes->forPage($page, $perPage)->values(),
             $dishes->count(),
             $perPage,
             $page,
             ['path' => LengthAwarePaginator::resolveCurrentPath()]
-        );
+        ))->onEachSide(1);
     }
 }

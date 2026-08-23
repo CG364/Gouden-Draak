@@ -19,7 +19,7 @@ class OrderController extends Controller
     public function index(): View
     {
         return view('admin.orders.index', [
-            'orders' => Order::query()->with(['placedBy', 'items', 'diningSession.table'])->orderByDesc('created_at')->paginate(15),
+            'orders' => Order::query()->with(['placedBy', 'items', 'diningSession.table'])->orderByDesc('created_at')->paginate(15)->onEachSide(1),
         ]);
     }
 

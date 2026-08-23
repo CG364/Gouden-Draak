@@ -18,7 +18,7 @@ class DiscountController extends Controller
     public function index(): View
     {
         return view('admin.discounts.index', [
-            'discounts' => Discount::query()->with('dishes')->orderByDesc('starts_at')->paginate(15),
+            'discounts' => Discount::query()->with('dishes')->orderByDesc('starts_at')->paginate(15)->onEachSide(1),
         ]);
     }
 

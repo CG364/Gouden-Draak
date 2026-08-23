@@ -18,7 +18,7 @@ class TablePlanningController extends Controller
     public function index(): View
     {
         return view('admin.table-plannings.index', [
-            'tablePlannings' => TablePlanning::query()->with(['staff', 'table'])->orderByDesc('start')->paginate(15),
+            'tablePlannings' => TablePlanning::query()->with(['staff', 'table'])->orderByDesc('start')->paginate(15)->onEachSide(1),
         ]);
     }
 

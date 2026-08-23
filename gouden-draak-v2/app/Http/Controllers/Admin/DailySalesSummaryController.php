@@ -18,7 +18,8 @@ class DailySalesSummaryController extends Controller
         return view('admin.sales-summaries.index', [
             'salesSummaries' => DailySalesSummary::query()
                 ->orderByDesc('date')
-                ->paginate(31),
+                ->paginate(31)
+                ->onEachSide(1),
         ]);
     }
 
