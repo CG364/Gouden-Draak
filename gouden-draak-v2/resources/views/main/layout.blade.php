@@ -5,11 +5,10 @@
 
     <div class="flex justify-end gap-2 pb-2 text-sm">
         @foreach (config('translatable.locales') as $code => $label)
-            <a
-                href="{{ route('locale.switch', $code) }}"
-                title="{{ $label }}"
-                class="px-2 py-1 border border-yellow-300 {{ app()->getLocale() === $code ? 'bg-yellow-300 text-black font-bold' : 'text-yellow-300' }}"
-            >{{ strtoupper($code) }}</a>
+        <a
+            href="{{ route('locale.switch', $code) }}"
+            title="{{ $label }}"
+            class="px-2 py-1 border border-yellow-300 {{ app()->getLocale() === $code ? 'bg-yellow-300 text-black font-bold' : 'text-yellow-300' }}">{{ strtoupper($code) }}</a>
         @endforeach
     </div>
 
@@ -48,7 +47,7 @@
 
         <div class="traditional-border" style="border-image-source: url('/img/border.png');">
             <div class="flex">
-                <img src="{{asset('img/dragon-small.png')}}"  alt="" class="w-50 hidden lg:block">
+                <img src="{{asset('img/dragon-small.png')}}" alt="" class="w-50 hidden lg:block">
                 <div class="grow">
                     <div class="text-yellow-300 text-center">
                         <p class="text-3xl font-bold">{{ __('home.tagline') }}</p>
@@ -56,22 +55,22 @@
                     </div>
 
                     <div class="flex w-full justify-center pt-5">
-                        <div class="border flex text-white">
+                        <nav class="border flex text-white">
                             @foreach ($navbarItems ?? [] as $navbarItem)
-                                <a href="{{ $navbarItem->url }}" class="m-1 px-2 py-1" style="background-image: url('/img/menu_bg_gradient.png')">{{ $navbarItem->header }}</a>
+                            <a href="{{ $navbarItem->url }}" class="m-1 px-2 py-1" style="background-image: url('/img/menu_bg_gradient.png')">{{ $navbarItem->header }}</a>
                             @endforeach
-                        </div>
+                        </nav>
                     </div>
                 </div>
                 <img src="{{asset('img/dragon-small-flipped.png')}}" alt="" class="w-50 hidden lg:block">
 
             </div>
-            <div class="flex-1">
+            <main class="flex-1">
                 @yield('content')
-            </div>
-            <div class="flex justify-center pt-5">
+            </main>
+            <footer class="flex justify-center pt-5">
                 <a href="{{ route('contact') }}" class="text-yellow-300">{{ __('nav.to_contact') }}</a>
-            </div>
+            </footer>
         </div>
     </div>
 </div>
